@@ -63,12 +63,18 @@ export default function Pasien({ pasiens }) {
                                                 <td className="px-4 py-2 whitespace-nowrap text-sm">{pasien.lahir}</td>
                                                 <td className="px-4 py-2 whitespace-nowrap text-sm">{pasien.nik}</td>
                                                 <td className="px-4 py-2 whitespace-nowrap text-sm">{pasien.alamat}</td>
-                                                <td className="px-4 py-2 whitespace-nowrap flex justify-left">
+                                                <td className="px-4 py-2 whitespace-nowrap flex space-x-2">
                                                     <button
                                                         className="border border-red-600 text-red-600 px-4 py-2 rounded-lg shadow transition-colors duration-300 ease-in-out hover:bg-red-600 hover:text-white text-sm"
                                                         onClick={() => handleDelete(pasien.id)}
                                                     >
                                                         Hapus
+                                                    </button>
+                                                    <button
+                                                        className="border border-green-600 text-green-600 px-4 py-2 rounded-lg shadow transition-colors duration-300 ease-in-out hover:bg-green-600 hover:text-white text-sm"
+                                                        onClick={() => window.location.href = route('pasiens.show', pasien.id)}
+                                                    >
+                                                        Detail
                                                     </button>
                                                 </td>
                                             </tr>

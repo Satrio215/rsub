@@ -36,11 +36,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/pasien', [PasienController::class, 'create'])->name('pasiens.create');
     Route::post('/pasiens', [PasienController::class, 'store'])->name('pasiens.store');
     Route::delete('/pasiens/{id}', [PasienController::class, 'destroy'])->name('pasiens.destroy');
+    Route::get('/pasiens/{id}', [PasienController::class, 'show'])->name('pasiens.show');
+
 
     Route::get('/rekams', [RekamController::class, 'index'])->name('rekams.index');
     Route::get('/rekam', [RekamController::class, 'create'])->name('rekams.create');
     Route::post('/rekams/create', [RekamController::class, 'store'])->name('rekams.store');
     Route::delete('/rekams/{id}', [RekamController::class, 'destroy'])->name('rekams.destroy');
+    Route::get('/rekams/{id}', [RekamController::class, 'show'])->name('rekams.show');
+
 
 });
 

@@ -71,7 +71,11 @@ class RekamController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $rekam = Rekam::findOrfail($id);
+
+        return Inertia::render('Rekam/Detail',[
+            'rekam' => $rekam
+        ]);
     }
 
     /**

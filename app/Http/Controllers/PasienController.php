@@ -52,7 +52,11 @@ class PasienController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $pasien = Pasien::findOrfail($id);
+
+        return Inertia::render('Pasien/Detail',[
+            'pasien' => $pasien
+        ]);
     }
 
     /**

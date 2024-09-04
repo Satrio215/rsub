@@ -61,12 +61,18 @@ export default function Rekam({ rekams }) {
                                                 <td className="px-4 py-2 whitespace-nowrap text-sm">{rekam.dx}</td>
                                                 <td className="px-4 py-2 whitespace-nowrap text-sm">{rekam.tx}</td>
                                                 <td className="px-4 py-2 whitespace-nowrap text-sm">{rekam.keterangan}</td>
-                                                <td className="px-4 py-2 whitespace-nowrap flex justify-left">
+                                                <td className="px-4 py-2 whitespace-nowrap flex space-x-2">
                                                     <button
                                                         className="border border-red-600 text-red-600 px-4 py-2 rounded-lg shadow transition-colors duration-300 ease-in-out hover:bg-red-600 hover:text-white text-sm"
                                                         onClick={() => handleDelete(rekam.id)}
                                                     >
                                                         Hapus
+                                                    </button>
+                                                    <button
+                                                        className="border border-green-600 text-green-600 px-4 py-2 rounded-lg shadow transition-colors duration-300 ease-in-out hover:bg-green-600 hover:text-white text-sm"
+                                                        onClick={() => window.location.href = route('rekams.show', rekam.id)}
+                                                    >
+                                                        Detail
                                                     </button>
                                                 </td>
                                             </tr>

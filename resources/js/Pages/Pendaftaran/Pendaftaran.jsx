@@ -132,8 +132,15 @@ export default function Pendaftaran({ message }) {
                     </form>
                 </div>
                 <div className="bg-gray-100 text-center p-4">
-                    <small>Pastikan semua data yang dimasukkan sudah benar sebelum mendaftar.</small>
+                    <small className="block mb-4">Pastikan semua data yang dimasukkan sudah benar sebelum mendaftar.</small>
+                    <button
+                        className="border border-blue-600 text-blue-600 px-4 py-2 rounded-lg shadow transition-colors duration-300 ease-in-out hover:bg-blue-600 hover:text-white text-sm "
+                            onClick={() => window.location.href = route('pasiens.index')}
+                    >
+                        Kembali ke Daftar Pasien
+                    </button>
                 </div>
+                
             </div>
         </div>
     );
