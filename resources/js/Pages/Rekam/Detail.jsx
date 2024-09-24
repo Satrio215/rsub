@@ -1,8 +1,11 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link, usePage } from '@inertiajs/react';
+import { Inertia } from '@inertiajs/inertia'; // Tambahkan import ini
 
-export default function Detail({ rekam }) {
+export default function Detail({ rekam, pasien }) {
     const { auth } = usePage().props;
+    console.log(rekam); // Cek apakah pasien terdefinisi
+
 
     return (
         <AuthenticatedLayout
@@ -36,9 +39,15 @@ export default function Detail({ rekam }) {
                             </div>
                             <button
                                 className="border border-yellow-600 text-yellow-600 px-4 py-2 rounded-lg shadow transition-colors duration-300 ease-in-out hover:bg-yellow-600 hover:text-white text-sm"
-                                onClick={() => window.location.href = route('rekams.index')}
+                                onClick={() => {
+                                    if (pasien && pasien.id) {
+                                        Inertia.visit(route('pasiens.show', pasien.id));
+                                    } else {
+                                        console.error('Pasien tidak ditemukan');
+                                    }
+                                }}
                             >
-                                Kembali ke Daftar Rekam Medis
+                                Kembali ke Detail Pasien
                             </button>
                         </div>
                     </div>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Inertia\Inertia;
 use App\Models\Pasien;
+use App\Models\Rekam;
+
 use Illuminate\Http\Request;
 
 class PasienController extends Controller
@@ -50,14 +52,16 @@ class PasienController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+        public function show(string $id)
     {
-        $pasien = Pasien::findOrfail($id);
+        $pasien = Pasien::findOrFail($id);
+        $rekams = Rekam::where('pasien_id', $id)->get();
 
-        return Inertia::render('Pasien/Detail',[
-            'pasien' => $pasien
+        return Inertia::render('Pasien/Detail', [
+            'pasien' => $pasien,
+            'rekams' => $rekams
         ]);
-    }
+}
 
     /**
      * Show the form for editing the specified resource.

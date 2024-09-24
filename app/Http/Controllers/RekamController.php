@@ -71,10 +71,14 @@ class RekamController extends Controller
      */
     public function show(string $id)
     {
-        $rekam = Rekam::findOrfail($id);
+        $rekam = Rekam::findOrFail($id);
+        
+        // Ambil pasien yang terkait dengan rekam medis ini
+        $pasien = $rekam->pasien; // Asumsi Anda memiliki relasi antara Rekam dan Pasien
 
-        return Inertia::render('Rekam/Detail',[
-            'rekam' => $rekam
+        return Inertia::render('Rekam/Detail', [
+            'rekam' => $rekam,
+            'pasien' => $pasien // Kirim data pasien ke tampilan
         ]);
     }
 

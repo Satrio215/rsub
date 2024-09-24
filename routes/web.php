@@ -43,6 +43,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/rekam', [RekamController::class, 'create'])->name('rekams.create');
     Route::post('/rekams/create', [RekamController::class, 'store'])->name('rekams.store');
     Route::delete('/rekams/{id}', [RekamController::class, 'destroy'])->name('rekams.destroy');
+
+    //detail rekam
     Route::get('/rekams/{id}', [RekamController::class, 'show'])->name('rekams.show');
 
 
